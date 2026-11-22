@@ -21,4 +21,4 @@ require (
 	golang.org/x/exp v0.0.0-20260813180055-c1d0aacb2297 // indirect
 )
 
-replace github.com/diegoholiveira/jsonlogic/v3 => github.com/KargoGlobal/jsonlogic/v3 v3.10.5-kargo.1
+replace github.com/diegoholiveira/jsonlogic/v3 => github.com/KargoGlobal/jsonlogic/v3 v3.11.0-kargo.1

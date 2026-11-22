@@ -1,5 +1,5 @@
-github.com/KargoGlobal/jsonlogic/v3 v3.10.5-kargo.1 h1:NU2QMk0cFGm6uhJDyCoq+p+zFjuVaTxBTs+03g8a1jQ=
-github.com/KargoGlobal/jsonlogic/v3 v3.10.5-kargo.1/go.mod h1:mJcE63oWAS86KovXNXxyiBvJk8bvOaeGG7psnkzn9ms=
+github.com/KargoGlobal/jsonlogic/v3 v3.11.0-kargo.1 h1:q+YVkON4yszdbNLAPaXxIIQtFCDPxtarXJ2QRhLzx54=
+github.com/KargoGlobal/jsonlogic/v3 v3.11.0-kargo.1/go.mod h1:mJcE63oWAS86KovXNXxyiBvJk8bvOaeGG7psnkzn9ms=
 github.com/antlr4-go/antlr/v4 v4.13.1 h1:SqQKkuVZ+zWkMMNkjy5FZe5mr5WURWnlpmOuzYWrPrQ=
 github.com/antlr4-go/antlr/v4 v4.13.1/go.mod h1:GKmUxMtwp6ZgGwZSva4eWPC5mS6vUAmOABFgjdkM7Nw=
 github.com/blang/semver/v4 v4.0.0 h1:1PFHFE6yCCTv8C1TeyNNarDzntLi7wMI5i/pzqYIsAM=
