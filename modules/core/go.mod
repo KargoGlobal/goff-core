@@ -20,3 +20,5 @@ require (
 	go.yaml.in/yaml/v3 v3.0.5 // indirect
 	golang.org/x/exp v0.0.0-20260813180055-c1d0aacb2297 // indirect
 )
+
+replace github.com/diegoholiveira/jsonlogic/v3 => github.com/KargoGlobal/jsonlogic/v3 v3.10.5-kargo.1
