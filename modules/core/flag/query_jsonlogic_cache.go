@@ -99,3 +99,26 @@ func asJSONData(v any) (any, bool) {
 	}
 	return nil, false
 }
+
+// isJSONNative reports whether m only holds values a JSON round trip leaves unchanged.
+func isJSONNative(m map[string]any) bool {
+	for k, v := range m {
+		if !utf8.ValidString(k) {
+			return false
+		}
+		switch val := v.(type) {
+		case nil, bool:
+		case string:
+			if !utf8.ValidString(val) {
+				return false
+			}
+		case float64:
+			if math.IsNaN(val) || math.IsInf(val, 0) {
+				return false
+			}
+		default:
+			return false
+		}
+	}
+	return true
+}
