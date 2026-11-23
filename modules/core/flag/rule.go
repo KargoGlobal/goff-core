@@ -9,7 +9,6 @@ import (
 	"slices"
 	"time"
 
-	"github.com/diegoholiveira/jsonlogic/v3"
 	"github.com/thomaspoignant/go-feature-flag/modules/core/ffcontext"
 	"github.com/thomaspoignant/go-feature-flag/modules/core/internalerror"
 	"github.com/thomaspoignant/go-feature-flag/modules/core/utils"
@@ -195,13 +194,16 @@ func evaluateRule(compiled *compiledQuery, queryCtx *queryContext) (success bool
 	// mapCtx is shared by every rule of the flag: a query engine must not modify it.
 	switch compiled.format {
 	case JSONLogicQueryFormat:
+		if compiled.jsonLogic == nil {
+			return false
+		}
 		data, err := queryCtx.dataOnce()
 		if err != nil {
 			slog.ErrorContext(context.Background(), "error while marshalling the context for the jsonlogic query",
 				slog.Any("mapCtx", mapCtx), slog.Any("error", err.Error()))
 			return false
 		}
-		result, err := jsonlogic.ApplyInterface(compiled.jsonLogic, data)
+		result, err := compiled.jsonLogic.Apply(data)
 		if err != nil {
 			slog.ErrorContext(context.Background(), "error while evaluating the jsonlogic query",
 				slog.String("query", query), slog.Any("error", err.Error()))

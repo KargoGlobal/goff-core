@@ -6,6 +6,7 @@ import (
 	"sync"
 	"unicode/utf8"
 
+	"github.com/diegoholiveira/jsonlogic/v3"
 	"github.com/thomaspoignant/go-feature-flag/modules/core/utils"
 )
 
@@ -16,7 +17,7 @@ var compiledQueryCache sync.Map // map[string]*compiledQuery
 type compiledQuery struct {
 	trimmed   string
 	format    QueryFormat
-	jsonLogic any
+	jsonLogic *jsonlogic.Rule
 }
 
 func getCompiledQuery(raw string) *compiledQuery {
@@ -28,7 +29,7 @@ func getCompiledQuery(raw string) *compiledQuery {
 	if c.format == JSONLogicQueryFormat {
 		var rule any
 		if json.Unmarshal([]byte(c.trimmed), &rule) == nil {
-			c.jsonLogic = rule
+			c.jsonLogic, _ = jsonlogic.Prepare(rule)
 		}
 	}
 	actual, _ := compiledQueryCache.LoadOrStore(raw, c)
